@@ -14,7 +14,21 @@ export function TrendsPage() {
       <PageHeader title="Trends" description="Real-time trending topics and hashtag performance across platforms" />
       <DataFetcher query={() => supabase.from('trends').select('*').order('volume', { ascending: false })}>
         {(trends: Trend[]) => {
-          const volByPlat = useMemo(() => { const c: Record<string, number> = {}; trends.forEach(t => { c[t.platform] = (c[t.platform] || 0) + t.volume; }); return Object.entries(c).sort((a,b) => b[1]-a[1]).slice(0,8).map(([label,value]) => ({ label, value, color: PLATFORMS.find(p => p.name === label)?.color || '#3b82f6' })); }, [trends]);
+          const c: Record<string, number> = {};
+
+trends.forEach((t) => {
+  c[t.platform] = (c[t.platform] || 0) + t.volume;
+});
+
+const volByPlat = Object.entries(c)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 8)
+  .map(([label, value]) => ({
+    label,
+    value,
+    color:
+      PLATFORMS.find((p) => p.name === label)?.color || "#3b82f6",
+  }));
           const top = trends.slice(0, 5);
           return (
             <div className="space-y-6">
