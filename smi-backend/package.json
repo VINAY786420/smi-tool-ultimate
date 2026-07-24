@@ -1,0 +1,41 @@
+{
+  "name": "smi-tool-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SMI Tool Ultimate - real data collection backend (official APIs only)",
+  "scripts": {
+    "build": "tsc",
+    "collect": "tsx src/index.ts",
+    "collect:reddit": "tsx src/index.ts reddit",
+    "collect:youtube": "tsx src/index.ts youtube",
+    "collect:news": "tsx src/index.ts newsapi",
+    "collect:rss": "tsx src/index.ts rss",
+    "collect:googlenews": "tsx src/index.ts googlenews",
+    "collect:twitter": "tsx src/index.ts twitter",
+    "collect:instagram": "tsx src/index.ts instagram",
+    "collect:facebook": "tsx src/index.ts facebook",
+    "collect:linkedin": "tsx src/index.ts linkedin",
+    "collect:tiktok": "tsx src/index.ts tiktok",
+    "collect:pinterest": "tsx src/index.ts pinterest",
+    "collect:snapchat": "tsx src/index.ts snapchat",
+    "collect:threads": "tsx src/index.ts threads",
+    "collect:amazon": "tsx src/index.ts amazon",
+    "collect:flipkart": "tsx src/index.ts flipkart",
+    "collect:meesho": "tsx src/index.ts meesho",
+    "collect:myntra": "tsx src/index.ts myntra",
+    "collect:nykaa": "tsx src/index.ts nykaa",
+    "collect:all": "tsx src/index.ts all",
+    "dev": "tsx watch src/index.ts all"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5",
+    "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  }
+}
